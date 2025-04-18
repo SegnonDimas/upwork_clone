@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:upwork_clone/images_path/images_path.dart';
 
 import 'landing_page.dart';
 
@@ -29,7 +30,7 @@ class _LogoPageState extends State<LogoPage> {
           borderRadius: BorderRadius.circular(40),
           child: Image.asset(
             height: MediaQuery.of(context).size.height * 0.25,
-            'assets/logos/logo_upwork.png',
+            ImagesPath.logo,
           ),
         ),
       ),
