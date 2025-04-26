@@ -1,6 +1,10 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:upwork_clone/views/colors/app_colors.dart';
+import 'package:upwork_clone/views/pages/login_page.dart';
 
 import '../../images_path/images_path.dart';
 import '../models_ui/landing_item_view.dart';
@@ -37,6 +41,10 @@ class _LandingPageState extends State<LandingPage> {
 
   @override
   Widget build(BuildContext context) {
+    var AppSwitch =
+        Platform.isIOS
+            ? CupertinoSwitch(value: true, onChanged: (t) {})
+            : Switch(value: true, onChanged: (t) {});
     return Scaffold(
       body: Column(
         // mainAxisAlignment: MainAxisAlignment.center,
@@ -46,12 +54,13 @@ class _LandingPageState extends State<LandingPage> {
           SizedBox(height: 50),
 
           //logo
-          Center(
-            child: Image.asset(
-              width: MediaQuery.of(context).size.width * 0.4,
-              ImagesPath.logoLetter,
-            ),
-          ),
+          /*Center(
+                child: Image.asset(
+                  width: MediaQuery.of(context).size.width * 0.4,
+                  ImagesPath.logoLetter,
+                ),
+              )
+              ,*/
 
           //presentation
           SizedBox(
@@ -94,6 +103,10 @@ class _LandingPageState extends State<LandingPage> {
                 ),
               ),
               onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => PageConnexion()),
+                );
                 //Navigator.pushNamed(context, '/login');
               },
               child: Text(
